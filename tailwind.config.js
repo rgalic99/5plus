@@ -21,7 +21,7 @@ module.exports = {
 				science_main: "#61845C",
 				science_second: "#BBE1B4",
 				history_main: "#B18E48",
-				history_second: "#B18E48",
+				history_second: "#F7E1B7",
 			},
 		},
 	},
