@@ -10,6 +10,7 @@ module.exports = {
 		extend: {
 			fontFamily: {
 				main: ['"main"', "sans-serif"],
+				second: ['"second"', "sans-serif"],
 			},
 			colors: {
 				main: "#4b3566",
@@ -22,6 +23,7 @@ module.exports = {
 				science_second: "#BBE1B4",
 				history_main: "#B18E48",
 				history_second: "#F7E1B7",
+				off_white: "FAFAFA",
 			},
 		},
 	},
