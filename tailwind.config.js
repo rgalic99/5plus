@@ -25,6 +25,11 @@ module.exports = {
 				history_second: "#F7E1B7",
 				off_white: "FAFAFA",
 			},
+			backgroundImage: {
+				hero: "url('/assets/hero-image.svg')",
+				burger: "url('/assets/navbar.svg')",
+				doodle: "url('/assets/doodle.svg')",
+			},
 		},
 	},
 	plugins: [],
