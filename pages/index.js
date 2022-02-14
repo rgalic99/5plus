@@ -1,4 +1,4 @@
-import Header from "../components/Header";
+import Header from "../modules/Header";
 import Link from "next/link";
 import Heading, { Heading2 } from "../components/Heading";
 import { MainButton, SecondButton } from "../utils/button";
