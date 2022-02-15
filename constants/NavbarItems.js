@@ -5,3 +5,5 @@ export const navigationItems = [
 	"Forum",
 	"Odjava",
 ];
+
+export const navigationLinks = ["profile", ".", "subjects", "forum", "logout"];
