@@ -1,62 +1,40 @@
 import tw from "twin.macro";
+import {
+	loginFormNames,
+	loginFormPlaceholder,
+	registerFormNames,
+	registerFormPlaceholder,
+} from "../constants/FormConstants";
 import { MainButton } from "../utils/button";
 
-export const LoginForm = () => {
-	const formNames = ["email", "password"];
-	const formPlaceholder = ["E-mail", "Lozinka"];
-	return (
-		<form className="grid grid-cols-12 col-span-12 my-8 text-center">
-			{formNames.map((el, index) =>
-				MakeFormElement(el, formPlaceholder[index])
-			)}
-			{MainButton("PRIJAVA")}
-		</form>
-	);
-};
-
 export const RegisterForm = () => {
-	const formNames = ["email", "name", "lname", "password", "password"];
-	const formPlaceholder = [
-		"E-mail",
-		"Ime",
-		"Prezime",
-		"Lozinka",
-		"Ponovno unesi lozinku",
-	];
+	return MakeForm(registerFormNames, registerFormPlaceholder, "STVORI RAČUN");
+};
+export const LoginForm = () => {
+	return MakeForm(loginFormNames, loginFormPlaceholder, "PRIJAVA");
+};
+
+const MakeForm = (names, placeholder, text) => {
 	return (
 		<form className="grid grid-cols-12 col-span-12 my-8 text-center">
-			{formNames.map((el, index) =>
-				MakeFormElement(el, formPlaceholder[index], Style(el))
-			)}
-			{MainButton("STVORI RAČUN")}
+			{names.map((el, index) => MakeFormElement(el, placeholder[index]))}
+			{MainButton(text)}
 		</form>
 	);
 };
 
-const MakeFormElement = (name, placeholder, style = tw``) => {
-	const input_style = tw`text-main bg-second rounded-3xl m-3 p-4 col-span-6 col-start-4 drop-shadow-2xl placeholder:text-main text-3xl text-left`;
+const MakeFormElement = (name, placeholder) => {
+	const input_style = tw`text-main bg-second text-overflow[elipsis] col-span-10 col-start-2 rounded-3xl m-3 p-4 drop-shadow-2xl placeholder:text-main text-3xl text-left sm:col-start-4 sm:col-span-6`;
 	return (
 		<input
 			id={name + placeholder}
 			key={name + placeholder}
 			name={name}
-			type={name}
+			type={name.split("-")[1]}
 			placeholder={placeholder}
 			autoComplete={name}
 			required
 			css={input_style}
-			style={style}
 		></input>
 	);
-};
-
-const Style = (name) => {
-	switch (name) {
-		case "name":
-			return tw`col-span-3 col-start-4`;
-		case "lname":
-			return tw`col-span-3 col-start-7`;
-		default:
-			return tw``;
-	}
 };

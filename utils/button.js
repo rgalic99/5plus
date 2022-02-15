@@ -1,7 +1,7 @@
 import tw, { styled } from "twin.macro";
 
 const StyledButton = styled.button(({ rest }) => [
-	tw`col-span-6 col-start-4 m-4 p-4 rounded-2xl text-4xl`,
+	tw`col-span-10 col-start-2 m-4 p-4 rounded-2xl text-4xl sm:col-start-4 sm:col-span-6`,
 	rest,
 ]);
 
