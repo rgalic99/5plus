@@ -5,21 +5,17 @@ import {
 	registerFormNames,
 	registerFormPlaceholder,
 } from "../constants/FormConstants";
-import { MainButton } from "../utils/button";
 
 export const RegisterForm = () => {
-	return MakeForm(registerFormNames, registerFormPlaceholder, "STVORI RAČUN");
+	return MakeForm(registerFormNames, registerFormPlaceholder);
 };
 export const LoginForm = () => {
-	return MakeForm(loginFormNames, loginFormPlaceholder, "PRIJAVA");
+	return MakeForm(loginFormNames, loginFormPlaceholder);
 };
 
-const MakeForm = (names, placeholder, text) => {
+const MakeForm = (names, placeholder) => {
 	return (
-		<form className="grid grid-cols-12 col-span-12 my-8 text-center">
-			{names.map((el, index) => MakeFormElement(el, placeholder[index]))}
-			{MainButton(text)}
-		</form>
+		<>{names.map((el, index) => MakeFormElement(el, placeholder[index]))}</>
 	);
 };
 

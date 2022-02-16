@@ -2,6 +2,7 @@ import { LoginForm } from "../components/Form";
 import Header from "../modules/Header";
 import Heading from "../components/Heading";
 import { LinkTo } from "../utils/link";
+import { MainButton } from "../utils/button";
 
 const Login = () => {
 	return (
@@ -10,7 +11,10 @@ const Login = () => {
 			<section className="grid grid-cols-12">
 				<section className="col-span-12 my-8">
 					<Heading text={"DOBRODOŠLI NATRAG!"}></Heading>
-					<LoginForm />
+					<form className="grid grid-cols-12 col-span-12 my-8 text-center">
+						<LoginForm />
+						{MainButton("PRIJAVA")}
+					</form>
 					{LinkTo("/register", "Nemaš račun? Klikni ovdje!")}
 				</section>
 			</section>
