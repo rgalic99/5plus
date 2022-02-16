@@ -8,7 +8,7 @@ const Home = () => {
 		<>
 			<Header />
 			<section className="grid grid-cols-12 m-auto bg-index bg-cover sm:bg-indexM lg:bg-indexL">
-				<section className="my-4 bg-[#F9EAE1]/70 m-auto col-span-12 rounded-md">
+				<section className="my-4 bg-[#F9EAE1]/70 m-auto col-span-12 rounded-md px-4">
 					<Heading text={"PROŠIRI SVOJE ZNANJE DANAS!"} />
 					<Heading2 text={"Za one koji žele znati više"} />
 				</section>
