@@ -15,3 +15,11 @@ export const HighlightColor = {
 	science: tw`bg-science_second`,
 	croatian: tw`bg-croatian_second`,
 };
+
+export const BorderColor = {
+	main: tw`border-main`,
+	math: tw`border-math_main`,
+	history: tw`border-history_main`,
+	science: tw`border-science_main`,
+	croatian: tw`border-croatian_main`,
+};
