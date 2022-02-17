@@ -4,7 +4,7 @@ const Heading = ({ text }) => {
 	return (
 		<h1
 			css={tw`m-8 col-start-4 col-span-6 text-main drop-shadow-2xl`}
-			className="text-5xl font-main sm:text-left md:text-center"
+			className="text-5xl font-main text-center"
 		>
 			{text}
 		</h1>
