@@ -2,6 +2,7 @@ import Header from "../modules/Header";
 import Link from "next/link";
 import Heading, { Heading2 } from "../components/Heading";
 import { MainButton, SecondButton } from "../utils/button";
+import Footer from "../modules/footer";
 
 const Home = (isLogged = flase) => {
 	return (
@@ -19,6 +20,7 @@ const Home = (isLogged = flase) => {
 					{MainButton(isLogged ? "STVORI RAČUN" : "NASTAVI UČITI")}
 				</Link>
 			</section>
+			<Footer />
 		</>
 	);
 };
