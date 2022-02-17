@@ -3,7 +3,7 @@ import Link from "next/link";
 import Heading, { Heading2 } from "../components/Heading";
 import { MainButton, SecondButton } from "../utils/button";
 
-const Home = () => {
+const Home = (isLogged = flase) => {
 	return (
 		<>
 			<Header />
@@ -12,11 +12,11 @@ const Home = () => {
 					<Heading text={"PROŠIRI SVOJE ZNANJE DANAS!"} />
 					<Heading2 text={"Za one koji žele znati više"} />
 				</section>
-				<Link href="/login" passHref>
-					{SecondButton("PRIJAVA")}
+				<Link href={`${isLogged ? "/login" : "/profile"}`} passHref>
+					{SecondButton(isLogged ? "PRIJAVA" : "MOJ PROFIL")}
 				</Link>
-				<Link href="/register" passHref>
-					{MainButton("STVORI RAČUN")}
+				<Link href={`${isLogged ? "/register" : "/subjects"}`} passHref>
+					{MainButton(isLogged ? "STVORI RAČUN" : "NASTAVI UČITI")}
 				</Link>
 			</section>
 		</>
