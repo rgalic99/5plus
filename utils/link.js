@@ -1,7 +1,7 @@
 import Link from "next/link";
 import tw from "twin.macro";
 
-export const LinkTo = (href, text) => (
+export const LinkTo = ({ href, text }) => (
 	<Link href={href} passHref>
 		<p
 			css={tw`underline cursor-pointer`}
