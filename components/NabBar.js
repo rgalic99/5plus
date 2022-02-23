@@ -7,7 +7,7 @@ const {
 
 const NavBar = ({ classes }) => {
 	return (
-		<nav
+		<aside
 			className={`${
 				classes ? "block" : "hidden"
 			} sm:flex content-evenly space-y-3 list-none font-medium bg-doodle bg-white ${classes}`}
@@ -19,7 +19,7 @@ const NavBar = ({ classes }) => {
 					</li>
 				</Link>
 			))}
-		</nav>
+		</aside>
 	);
 };
 
