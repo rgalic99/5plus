@@ -13,9 +13,15 @@ const Login = () => {
 					<Heading text={"DOBRODOŠLI NATRAG!"}></Heading>
 					<form className="grid grid-cols-12 col-span-12 my-8 text-center">
 						<LoginForm />
-						{MainButton("PRIJAVA")}
+						<MainButton text="PRIJAVA" />
+						{
+							//TODO add onSubmit for the form
+						}
 					</form>
-					{LinkTo("/register", "Nemaš račun? Klikni ovdje!")}
+					<LinkTo
+						href="/register"
+						text="Nemaš račun? Klikni ovdje!"
+					/>
 				</section>
 			</section>
 		</>

@@ -43,6 +43,7 @@ const Header = ({ color = "main", isLogged = false }) => {
 					<StyledNav
 						rest={tw`ml-5 justify-center cursor-pointer sm:hidden`}
 						onClick={() => setIsClicked(!isClicked)}
+						//TODO PASS DOWN IS CLICKED STATE AND ONCLICK SET TO FALSE
 					>
 						<Image
 							src={

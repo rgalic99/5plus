@@ -14,11 +14,13 @@ const Register = () => {
 					<Heading text={"ZAPOČNI DANAS!"} />
 					<form className="grid grid-cols-12 col-span-12 my-8 text-center">
 						<RegisterForm />
-						<Link passHref href="/success">
-							{MainButton("STVORI RAČUN")}
+						<Link href="/success">
+							<>
+								<MainButton text="STVORI RAČUN" />
+							</>
 						</Link>
 					</form>
-					{LinkTo("/login", "Imaš račun? Prijavi se!")}
+					<LinkTo href="/login" text="Imaš račun? Prijavi se!" />
 				</section>
 			</section>
 		</>
