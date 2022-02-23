@@ -1,7 +1,7 @@
-import SubjectCard from "../components/SubjectCard";
-import { namesList, subjectList } from "../constants/SubjectsList";
-import Header from "../modules/Header";
-import { BorderColor } from "../utils/color";
+import SubjectCard from "../../components/SubjectCard";
+import { namesList, subjectList } from "../../constants/SubjectsList";
+import Header from "../../modules/Header";
+import { BorderColor } from "../../utils/color";
 
 const Subjects = () => {
 	return (
