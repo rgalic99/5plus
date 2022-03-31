@@ -16,7 +16,7 @@ const Custom404 = () => {
 				<h1 className="text-center text-main text-5xl">
 					DOŠLO JE DO GREŠKE
 				</h1>
-				{LinkTo("/", "Vrati se na naslovnu stranicu!")}
+				<LinkTo href="/" text="Vrati se na naslovnu stranicu!" />
 			</section>
 		</>
 	);
