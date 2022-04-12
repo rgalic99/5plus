@@ -25,6 +25,7 @@ const AccountSuccess = () => {
 						passHref
 					>
 						{MainButton("ZAPOČNI", tw`px-20 rounded-3xl`)}
+						{/*TODO: FIX THIS LINK*/}
 					</Link>
 				</section>
 			</section>
