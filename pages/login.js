@@ -3,6 +3,7 @@ import Header from "../modules/Header";
 import Heading from "../components/Heading";
 import { LinkTo } from "../utils/link";
 import { MainButton } from "../utils/button";
+import { SignInButtonGoogle } from "../utils/googleLogin";
 
 const Login = () => {
 	return (
@@ -18,10 +19,9 @@ const Login = () => {
 							//TODO add onSubmit for the form
 						}
 					</form>
-					<LinkTo
-						href="/register"
-						text="Nemaš račun? Klikni ovdje!"
-					/>
+					<SignInButtonGoogle />
+					<br />
+					<LinkTo href="/register" text="Nemaš račun? Klikni ovdje!" />
 				</section>
 			</section>
 		</>
