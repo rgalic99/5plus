@@ -1,5 +1,5 @@
 import Header from "../modules/Header";
-import Footer from "../modules/footer";
+import Footer from "../modules/Footer";
 import HomeButtons from "../components/HomeButtons";
 import HomeBanner from "../components/HomeBanner";
 
