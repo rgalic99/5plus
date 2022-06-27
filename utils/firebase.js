@@ -1,9 +1,12 @@
 import { initializeApp } from "firebase/app";
 import "firebase/firestore";
 import "firebase/storage";
-import { getAuth, GoogleAuthProvider } from "firebase/auth";
-import { getFirestore } from "firebase/firestore";
-import { getStorage } from "firebase/storage";
+import {
+	getAuth,
+	GoogleAuthProvider,
+	createUserWithEmailAndPassword,
+} from "firebase/auth";
+import { getFirestore, collection, getDocs } from "firebase/firestore";
 
 const firebaseConfig = {
 	apiKey: "AIzaSyAvr_-zcaQ6WP3TvSAXL_vLb2XzHlMxS50",
@@ -21,7 +24,20 @@ export const auth = getAuth(app);
 // });
 
 export const db = getFirestore(app);
-export const storage = getStorage(app);
 export const googleAuthProvider = new GoogleAuthProvider();
 //TODO add Facebook login
 //export const facebookAuthProvider = new FacebookAuthProvider();
+/* const subjects = async (db) => {
+	const subjectsCollection = collection(db, "subjects");
+	const subjectsSnapshot = await getDocs(subjectsCollection);
+	const subjectsList = subjectsSnapshot.docs.map((doc) => {
+		return {
+			id: doc.id,
+			...doc.data(),
+		};
+	});
+	console.log("Here are the subjects: ");
+	console.log(subjectsList);
+};
+
+subjects(db); */
