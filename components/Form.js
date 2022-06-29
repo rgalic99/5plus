@@ -14,6 +14,7 @@ export const RegisterForm = () => {
 	} = useForm();
 	const onSubmit = (data) => console.log(data);
 	console.log(errors);
+	const style = "text-red-700 my-auto text-center text-3xl font-['Exo 2']";
 
 	return (
 		<>
@@ -25,13 +26,14 @@ export const RegisterForm = () => {
 					type="text"
 					placeholder="E-mail"
 					autoComplete="email"
-					{...register("E-mail", {
+					{...register("Email", {
 						required: true,
 						pattern: /^\S+@\S+$/i,
 					})}
 					css={input_style}
 					style={shared}
 				/>
+				{errors.Email && <p className={style}>X</p>}
 				<input
 					type="text"
 					placeholder="Ime"
@@ -48,6 +50,7 @@ export const RegisterForm = () => {
 					css={name_style2}
 					style={shared}
 				/>
+				{(errors.Ime || errors.Prezime) && <p className={style}>X</p>}
 				<input
 					type="password"
 					placeholder="Lozinka"
@@ -60,11 +63,12 @@ export const RegisterForm = () => {
 					css={input_style}
 					style={shared}
 				/>
+				{errors.Lozinka && <p className={style}>X</p>}
 				<input
 					type="password"
 					placeholder="Ponovljena lozinka"
 					autoComplete="new-password"
-					{...register("Ponovljena lozinka", {
+					{...register("Ponovljena_lozinka", {
 						required: true,
 						maxLength: 64,
 						pattern: /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/i,
@@ -72,6 +76,7 @@ export const RegisterForm = () => {
 					css={input_style}
 					style={shared}
 				/>
+				{errors.Ponovljena_lozinka && <p className={style}>X</p>}
 				<MainButtonSubmit text="STVORI RAČUN" />
 			</form>
 		</>
@@ -87,6 +92,7 @@ export const LoginForm = () => {
 	} = useForm();
 	const onSubmit = (data) => console.log(data);
 	console.log(errors);
+	const style = "text-red-700 my-auto text-center text-3xl font-['Exo 2']";
 
 	return (
 		<form
@@ -97,12 +103,13 @@ export const LoginForm = () => {
 				type="text"
 				placeholder="E-mail"
 				autoComplete="email"
-				{...register("E-mail", {
+				{...register("Email", {
 					required: true,
 					pattern: /^\S+@\S+$/i,
 				})}
 				css={input_style}
 			/>
+			{errors.Email && <p className={style}>X</p>}
 			<input
 				type="password"
 				placeholder="Lozinka"
@@ -114,6 +121,7 @@ export const LoginForm = () => {
 				})}
 				css={input_style}
 			/>
+			{errors.Lozinka && <p className={style}>X</p>}
 
 			<MainButton text="PRIJAVA" />
 		</form>
