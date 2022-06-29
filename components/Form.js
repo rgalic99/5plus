@@ -13,7 +13,6 @@ export const RegisterForm = () => {
 		formState: { errors },
 	} = useForm();
 	const onSubmit = (data) => console.log(data);
-	console.log(errors);
 	const style = "text-red-700 my-auto text-center text-3xl font-['Exo 2']";
 
 	return (
@@ -91,7 +90,6 @@ export const LoginForm = () => {
 		formState: { errors },
 	} = useForm();
 	const onSubmit = (data) => console.log(data);
-	console.log(errors);
 	const style = "text-red-700 my-auto text-center text-3xl font-['Exo 2']";
 
 	return (
