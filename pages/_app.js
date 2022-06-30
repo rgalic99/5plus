@@ -1,10 +1,8 @@
 import "../styles/globals.css";
 import Head from "next/head";
-import { UserContext } from "../utils/context";
-import { useUserData } from "../utils/hooks";
+import { UserAuthProvider } from "../utils/contextProvider";
 
 function MyApp({ Component, pageProps }) {
-	const userData = useUserData();
 	return (
 		<>
 			<Head>
@@ -13,9 +11,9 @@ function MyApp({ Component, pageProps }) {
 					content="width=device-width, initial-scale=1"
 				/>
 			</Head>
-			<UserContext.Provider value={userData}>
+			<UserAuthProvider>
 				<Component {...pageProps} />
-			</UserContext.Provider>
+			</UserAuthProvider>
 		</>
 	);
 }
