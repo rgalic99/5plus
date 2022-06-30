@@ -8,3 +8,5 @@ export const invalidStyle =
 export const errorStyle =
 	"text-red-700 px-4 mb-4 text-center text-2xl sm:text-3xl";
 export const formStyle = "grid grid-cols-12 col-span-12 my-8 text-center";
+export const spinnerStyle =
+	"border-8 rounded-3xl border-gray-400s border-t-main border-t-8 w-12 h-12 animate-spin";
