@@ -51,4 +51,9 @@ a {
 
 * {
 	box-sizing: border-box;
+	caret-color: transparent;
+}
+
+input {
+	caret-color: auto;
 }
