@@ -122,32 +122,36 @@ export const LoginForm = () => {
 	const onSubmit = (data) => console.log(data);
 
 	return (
-		<form onSubmit={handleSubmit(onSubmit)} className={formStyle}>
-			<input
-				type="text"
-				placeholder="E-mail"
-				autoComplete="email"
-				{...register("email", {
-					required: true,
-					pattern: /^\S+@\S+$/i,
-				})}
-				css={input_style}
-			/>
-			{errors.email && <p className={invalidStyle}>X</p>}
-			<input
-				type="password"
-				placeholder="Lozinka"
-				autoComplete="current-password"
-				{...register("password", {
-					required: true,
-					maxLength: 64,
-					pattern: /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/i,
-				})}
-				css={input_style}
-			/>
-			{errors.password && <p className={invalidStyle}>X</p>}
+		<>
+			<form onSubmit={handleSubmit(onSubmit)} className={formStyle}>
+				<input
+					type="text"
+					placeholder="E-mail"
+					autoComplete="email"
+					{...register("email", {
+						required: true,
+						pattern: /^\S+@\S+$/i,
+					})}
+					css={input_style}
+					style={shared}
+				/>
+				{errors.email && <p className={invalidStyle}>X</p>}
+				<input
+					type="password"
+					placeholder="Lozinka"
+					autoComplete="current-password"
+					{...register("password", {
+						required: true,
+						maxLength: 64,
+						pattern: /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/i,
+					})}
+					css={input_style}
+					style={shared}
+				/>
+				{errors.password && <p className={invalidStyle}>X</p>}
 
-			<MainButton text="PRIJAVA" />
-		</form>
+				<MainButton text="PRIJAVA" />
+			</form>
+		</>
 	);
 };
