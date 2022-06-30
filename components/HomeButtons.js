@@ -1,6 +1,7 @@
 import { MainButtonLink, SecondButtonLink } from "../utils/button";
 
 const HomeButtons = ({ isLogged = false }) => {
+	//TODO from real login
 	return (
 		<>
 			<SecondButtonLink

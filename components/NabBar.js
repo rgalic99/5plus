@@ -6,6 +6,8 @@ const {
 } = require("../constants/NavbarItems");
 
 const NavBar = ({ classes }) => {
+	//TODO only if logged in
+
 	return (
 		<aside
 			className={`${
