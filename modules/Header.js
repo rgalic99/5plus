@@ -4,10 +4,13 @@ import React, { useState, useEffect } from "react";
 import tw, { styled } from "twin.macro";
 import BurgerNavigation from "../components/Hamburger";
 import { BackgroundColor, HighlightColor } from "../utils/color";
+import { useUserAuth } from "../utils/contextProvider";
 
-const Header = ({ color = "main", isLogged = false }) => {
+const Header = ({ color = "main" }) => {
 	const [primary, setPrimary] = useState();
 	const [secondary, setSecondary] = useState();
+
+	const { user } = useUserAuth();
 
 	useEffect(() => {
 		setPrimary(BackgroundColor[color]);
@@ -33,32 +36,40 @@ const Header = ({ color = "main", isLogged = false }) => {
 				</Link>
 
 				<section className="flex justify-end w-full">
-					{isLogged && (
-						<StyledNav
-							color={secondary}
-							rest={tw`rounded-full mx-0`}
-						/>
+					{user && (
+						<Link href="/profile">
+							<a>
+								<StyledNav
+									color={secondary}
+									rest={tw`rounded-full mr-4`}
+								/>
+							</a>
+						</Link>
 					)}
 
-					<StyledNav
-						rest={tw`ml-5 justify-center cursor-pointer sm:hidden`}
-						onClick={() => setIsClicked(!isClicked)}
-						//TODO PASS DOWN IS CLICKED STATE AND ONCLICK SET TO FALSE
-					>
-						<Image
-							src={
-								isClicked
-									? "/assets/close.svg"
-									: "/assets/navbar.svg"
-							}
-							width="360px"
-							height="360px"
-							className="m-auto z-50"
-							alt="="
-						></Image>
-					</StyledNav>
+					{user && (
+						<StyledNav
+							rest={tw`ml-5 justify-center cursor-pointer sm:hidden`}
+							onClick={() => setIsClicked(!isClicked)}
+						>
+							<Image
+								src={
+									isClicked
+										? "/assets/close.svg"
+										: "/assets/navbar.svg"
+								}
+								width="360px"
+								height="360px"
+								className="m-auto z-50"
+								alt="="
+							></Image>
+						</StyledNav>
+					)}
 				</section>
-				<BurgerNavigation isOpen={isClicked} />
+				<BurgerNavigation
+					isOpen={isClicked}
+					showNavbar={setIsClicked}
+				/>
 			</HeaderStyle>
 		</>
 	);
