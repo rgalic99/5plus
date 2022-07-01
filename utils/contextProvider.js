@@ -7,7 +7,6 @@ import {
 	GoogleAuthProvider,
 } from "firebase/auth";
 import { createContext, useContext, useEffect, useState } from "react";
-import { useAuthState } from "react-firebase-hooks/auth";
 import { auth } from "./firebase";
 
 const userAuthContext = createContext();
@@ -49,9 +48,4 @@ export const useUserAuth = () => {
 		throw new Error("useUserAuth must be used within a UserAuthProvider");
 	}
 	return context;
-};
-
-export const useUserData = () => {
-	const [user] = useAuthState(auth);
-	return user;
 };
