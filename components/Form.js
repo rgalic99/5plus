@@ -116,12 +116,25 @@ export const RegisterForm = () => {
 };
 
 export const LoginForm = () => {
+	const { logIn } = useUserAuth();
+	const [error, setError] = useState(null);
 	const {
 		register,
 		handleSubmit,
 		formState: { errors },
 	} = useForm();
-	const onSubmit = (data) => console.log(data);
+
+	const router = useRouter();
+	const onSubmit = async (data) => {
+		const { email, password } = data;
+
+		try {
+			await logIn(email, password);
+			router.push("/subjects");
+		} catch (e) {
+			setError("Pogrešan mail ili lozinka!");
+		}
+	};
 
 	return (
 		<>
@@ -154,6 +167,7 @@ export const LoginForm = () => {
 
 				<MainButton text="PRIJAVA" />
 			</form>
+			{error && <p css={errorStyle}>{error}</p>}
 		</>
 	);
 };
