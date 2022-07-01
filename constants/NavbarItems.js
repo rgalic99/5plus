@@ -3,7 +3,6 @@ export const navigationItems = [
 	"Naslovnica",
 	"Predmeti",
 	"Forum",
-	"Odjava",
 ];
 
-export const navigationLinks = ["profile", ".", "subjects", "forum", "logout"];
+export const navigationLinks = ["profile", "", "subjects", "forum"];
