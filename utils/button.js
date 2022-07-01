@@ -59,7 +59,7 @@ export const MainButtonLink = ({ text, css = tw``, link }) => {
 
 export const SecondButtonLink = ({ text, css = tw``, link }) => {
 	return (
-		<StyledButton rest={tw`text-main p-4 bg-second`} css={css}>
+		<StyledButton rest={tw`text-main p-4 bg-second`} style={css}>
 			<Link href={link}>
 				<a className="block w-full p-4">{text}</a>
 			</Link>
