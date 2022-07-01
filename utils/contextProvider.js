@@ -26,7 +26,7 @@ export const UserAuthProvider = ({ children }) => {
 		return () => unsubscribe();
 	}, [user]);
 	return (
-		<userAuthContext.Provider value={{ user, signUp }}>
+		<userAuthContext.Provider value={{ user, signUp, logIn }}>
 			{children}
 		</userAuthContext.Provider>
 	);
