@@ -1,4 +1,5 @@
 import { useForm } from "react-hook-form";
+import { useRouter } from "next/router";
 import { MainButton, MainButtonSubmit } from "../utils/button";
 import { useUserAuth } from "../utils/contextProvider";
 import { useEffect, useRef, useState } from "react";
@@ -33,11 +34,14 @@ export const RegisterForm = () => {
 		}
 	}, [errors.password2]);
 
+	const router = useRouter();
+
 	const onSubmit = async (data) => {
 		const { email, password } = data;
 
 		try {
 			await signUp(email, password);
+			router.push("/success");
 		} catch (e) {
 			setError("Korisnik sa ovom email adresom vec postoji!");
 		}
@@ -57,7 +61,7 @@ export const RegisterForm = () => {
 					css={input_style}
 					style={shared}
 				/>
-				{errors.email && <p className={invalidStyle}>X</p>}
+				{errors.email && <p css={invalidStyle}>X</p>}
 				<input
 					type="text"
 					placeholder="Ime"
@@ -74,9 +78,7 @@ export const RegisterForm = () => {
 					css={name_style2}
 					style={shared}
 				/>
-				{(errors.name || errors.lName) && (
-					<p className={invalidStyle}>X</p>
-				)}
+				{(errors.name || errors.lName) && <p css={invalidStyle}>X</p>}
 				<input
 					type="password"
 					placeholder="Lozinka"
@@ -89,7 +91,7 @@ export const RegisterForm = () => {
 					css={input_style}
 					style={shared}
 				/>
-				{errors.password && <p className={invalidStyle}>X</p>}
+				{errors.password && <p css={invalidStyle}>X</p>}
 				<input
 					type="password"
 					placeholder="Ponovljena lozinka"
@@ -105,10 +107,10 @@ export const RegisterForm = () => {
 					css={input_style}
 					style={shared}
 				/>
-				{errors.password2 && <p className={invalidStyle}>X</p>}
+				{errors.password2 && <p css={invalidStyle}>X</p>}
 				<MainButtonSubmit text="STVORI RAČUN" />
 			</form>
-			{error && <p className={errorStyle}>{error}</p>}
+			{error && <p css={errorStyle}>{error}</p>}
 		</>
 	);
 };
@@ -135,7 +137,7 @@ export const LoginForm = () => {
 					css={input_style}
 					style={shared}
 				/>
-				{errors.email && <p className={invalidStyle}>X</p>}
+				{errors.email && <p css={invalidStyle}>X</p>}
 				<input
 					type="password"
 					placeholder="Lozinka"
@@ -148,7 +150,7 @@ export const LoginForm = () => {
 					css={input_style}
 					style={shared}
 				/>
-				{errors.password && <p className={invalidStyle}>X</p>}
+				{errors.password && <p css={invalidStyle}>X</p>}
 
 				<MainButton text="PRIJAVA" />
 			</form>
