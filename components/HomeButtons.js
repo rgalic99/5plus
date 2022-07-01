@@ -1,16 +1,17 @@
 import { MainButtonLink, SecondButtonLink } from "../utils/button";
+import { useUserAuth } from "../utils/contextProvider";
 
-const HomeButtons = ({ isLogged = false }) => {
-	//TODO from real login
+const HomeButtons = () => {
+	const { user } = useUserAuth();
 	return (
 		<>
 			<SecondButtonLink
-				text={isLogged ? "MOJ PROFIL" : "PRIJAVA"}
-				link={isLogged ? "/profile" : "/login"}
+				text={user ? "MOJ PROFIL" : "PRIJAVA"}
+				link={user ? "/profile" : "/login"}
 			/>
 			<MainButtonLink
-				text={isLogged ? "NASTAVI UČITI" : "STVORI RAČUN"}
-				link={isLogged ? "/subjects" : "/register"}
+				text={user ? "NASTAVI UČITI" : "STVORI RAČUN"}
+				link={user ? "/subjects" : "/register"}
 			/>
 		</>
 	);
