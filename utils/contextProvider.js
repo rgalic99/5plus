@@ -3,7 +3,7 @@ import {
 	signInWithEmailAndPassword,
 	onAuthStateChanged,
 	signOut,
-	signInWithPopup,
+	signInWithRedirect,
 	GoogleAuthProvider,
 } from "firebase/auth";
 import { createContext, useContext, useEffect, useState } from "react";
@@ -25,7 +25,7 @@ export const UserAuthProvider = ({ children }) => {
 
 	const googleSignIn = () => {
 		const provider = new GoogleAuthProvider();
-		return signInWithPopup(auth, provider);
+		return signInWithRedirect(auth, provider);
 	};
 	useEffect(() => {
 		const unsubscribe = onAuthStateChanged(auth, (user) => {

@@ -4,13 +4,13 @@ import tw from "twin.macro";
 import { useUserAuth } from "./contextProvider";
 
 export const SignInButtonGoogle = () => {
-	const { googleSignIn } = useUserAuth();
+	const { user, googleSignIn } = useUserAuth();
 	const router = useRouter();
+	if (user) router.push("/subjects");
 	const handleGoogleSignIn = async (e) => {
 		e.preventDefault();
 		try {
 			await googleSignIn();
-			router.push("/subjects");
 		} catch (e) {
 			throw new Error(e);
 		}
