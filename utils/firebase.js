@@ -1,11 +1,7 @@
 import { initializeApp } from "firebase/app";
 import "firebase/firestore";
 import "firebase/storage";
-import {
-	getAuth,
-	GoogleAuthProvider,
-	createUserWithEmailAndPassword,
-} from "firebase/auth";
+import { getAuth } from "firebase/auth";
 import { getFirestore, collection, getDocs } from "firebase/firestore";
 
 const firebaseConfig = {
@@ -24,7 +20,6 @@ export const auth = getAuth(app);
 // });
 
 export const db = getFirestore(app);
-export const googleAuthProvider = new GoogleAuthProvider();
 //TODO add Facebook login
 //export const facebookAuthProvider = new FacebookAuthProvider();
 /* const subjects = async (db) => {
