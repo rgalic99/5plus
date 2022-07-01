@@ -6,5 +6,3 @@ export const name_style2 = tw`col-span-5 col-start-7  sm:col-start-7 sm:col-span
 export const invalidStyle = tw`text-red-700 my-auto mr-2 text-center text-2xl sm:text-3xl`;
 export const errorStyle = tw`text-red-700 px-4 mb-4 text-center text-2xl sm:text-3xl`;
 export const formStyle = "grid grid-cols-12 col-span-12 my-8 text-center";
-export const spinnerStyle =
-	"border-8 rounded-3xl border-gray-400s border-t-main border-t-8 w-12 h-12 animate-spin";
