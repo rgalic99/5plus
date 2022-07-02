@@ -3,8 +3,8 @@ import Image from "next/image";
 const Footer = () => {
 	return (
 		<section className="py-12 bg-main text-second">
-			<main className="max-w-4xl flex flex-col ">
-				<div className="flex items-start justify-between mx-8 text-second">
+			<main className="flex flex-col ">
+				<div className="flex  justify-between mx-8 text-second items-stretch">
 					<div className="hidden md:block">
 						<div>
 							<div className="text-3xl font-main font-bold text-white">
@@ -20,7 +20,7 @@ const Footer = () => {
 					</div>
 
 					<div className="hidden md:block">
-						<h3 className="capitalize text-3xl font-main font-bold text-white">
+						<h3 className=" text-3xl font-main font-bold text-white">
 							Pošaljite nam poruku!
 						</h3>
 
@@ -62,8 +62,9 @@ const Footer = () => {
 						<h3 className="capitalize text-3xl font-roboto-condensed font-bold text-white">
 							Društvo
 						</h3>
-						<h4 className="text-xl hidden md:block">O nama</h4>
+
 						<ul className="mt-4 list-none font-second md:text-white">
+							<li className="whitespace-nowrap cursor-pointer">O nama</li>
 							<li className="whitespace-nowrap cursor-pointer">Radna mjesta</li>
 							<li className="whitespace-nowrap cursor-pointer mt-1">
 								Brending
@@ -83,7 +84,7 @@ const Footer = () => {
 					</h1>
 				</div>
 
-				<p className="mt-12 mx-auto md:mx-0 flex center">
+				<p className="mt-12 mx-auto  items-center">
 					Copyright @ 2021 FESB. All rights reserved.
 				</p>
 			</main>
