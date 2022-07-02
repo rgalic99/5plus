@@ -41,7 +41,7 @@ export const RegisterForm = () => {
 
 		try {
 			await signUp(email, password);
-			router.push("/success");
+			await router.push("/success");
 		} catch (e) {
 			setError("Korisnik sa ovom email adresom vec postoji!");
 		}
@@ -130,7 +130,7 @@ export const LoginForm = () => {
 
 		try {
 			await logIn(email, password);
-			router.push("/subjects");
+			await router.push("/subjects");
 		} catch (e) {
 			setError("Pogrešan mail ili lozinka!");
 		}
