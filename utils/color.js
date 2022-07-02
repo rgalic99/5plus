@@ -23,3 +23,10 @@ export const BorderColor = {
 	science: tw`border-science_main`,
 	croatian: tw`border-croatian_main`,
 };
+
+export const ProgressColor = {
+	math: "#6B69B8",
+	history: "#B18E48",
+	science: "#61845C",
+	croatian: "#B85151",
+};
