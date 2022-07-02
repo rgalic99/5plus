@@ -7,7 +7,7 @@ const Home = () => {
 	return (
 		<>
 			<Header />
-			<section className="grid grid-cols-12 m-auto pb-6 bg-index bg-cover sm:bg-indexM lg:bg-indexL">
+			<section className="grid grid-cols-12 m-auto pb-8 lg:pb-96 bg-index bg-cover sm:bg-indexM lg:bg-indexL">
 				<HomeBanner />
 				<HomeButtons />
 			</section>

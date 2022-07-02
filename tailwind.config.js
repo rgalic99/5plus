@@ -31,7 +31,7 @@ module.exports = {
 				doodle: "url('/assets/doodle.svg')",
 				index: "url('/assets/index.svg')",
 				indexM: "url('/assets/indexM.jpg')",
-				indexL: "url('/assets/indexL.jpg')",
+				indexL: "url('/assets/background.jpg')",
 			},
 		},
 	},
