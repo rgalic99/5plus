@@ -1,11 +1,52 @@
+import Image from "next/image";
+
 const Footer = () => {
 	return (
-		<section className="py-12 bg-main font-second text-white">
-			<main className="max-w-4xl m-8">
-				<div className="flex items-start justify-around">
-					<div>
-						<h3 className="capitalize text-3xl font-roboto-condensed font-bold text-white t">
-							Kontakt
+		<section className="py-12 bg-main text-second">
+			<main className="max-w-4xl flex flex-col ">
+				<div className="flex items-start justify-between mx-8 text-second">
+					<div className="hidden md:block">
+						<div>
+							<div className="text-3xl font-main font-bold text-white">
+								Obratite nam se!
+							</div>
+							<div className="flex items-left">
+								<p className="ml-4">+385 123 0000</p>
+							</div>
+							<div className="flex items-end">
+								<p className="ml-4">design@fesb.hr</p>
+							</div>
+						</div>
+					</div>
+
+					<div className="hidden md:block">
+						<h3 className="capitalize text-3xl font-main font-bold text-white">
+							Pošaljite nam poruku!
+						</h3>
+
+						<div className="mt-2 flex flex-col text-main font-second">
+							<input
+								className="mt-4 p-2 w-4/5  rounded-md "
+								placeholder="Vaše ime"
+								type="text"
+							/>
+							<input
+								className="mt-4 p-2 w-4/5  rounded-md"
+								placeholder="Vaš email"
+								type="text"
+							/>
+							<textarea
+								className="mt-4 p-2 resize-none  rounded-md"
+								placeholder="Vaša poruka"
+								cols="30"
+								rows="8"
+							></textarea>
+						</div>
+					</div>
+
+					<div className="md:hidden">
+						<h3 className="capitalize text-3xl font-main font-bold text-white">
+							Obratite nam se!
 						</h3>
 						<ul className="mt-4 list-none font-medium">
 							<li className="whitespace-nowrap cursor-pointer">
@@ -19,22 +60,30 @@ const Footer = () => {
 
 					<div>
 						<h3 className="capitalize text-3xl font-roboto-condensed font-bold text-white">
-							Stranice
+							Društvo
 						</h3>
-						<ul className="mt-4 list-none font-medium md:text-white">
-							<li className="whitespace-nowrap cursor-pointer capitalize">
-								Naslovna stranica
-							</li>
-							<li className="whitespace-nowrap cursor-pointer mt-1">Prijava</li>
+						<h4 className="text-xl hidden md:block">O nama</h4>
+						<ul className="mt-4 list-none font-second md:text-white">
+							<li className="whitespace-nowrap cursor-pointer">Radna mjesta</li>
 							<li className="whitespace-nowrap cursor-pointer mt-1">
-								Registracija
+								Brending
 							</li>
-							<li className="whitespace-nowrap cursor-pointer mt-1">Forum</li>
+							<li className="whitespace-nowrap cursor-pointer mt-1">Novosti</li>
+							<li className="whitespace-nowrap cursor-pointer mt-1">Blog</li>
+							<li className="whitespace-nowrap cursor-pointer mt-1">
+								Kontaktirajte nas
+							</li>
 						</ul>
 					</div>
 				</div>
 
-				<p className="mt-12 mx-auto md:mx-0 text-center">
+				<div className="flex mx-auto mt-16 items-center md:hidden">
+					<h1 className="ml-6  text-3xl text-second font-main mb-2">
+						Hvala Vam na posjeti!
+					</h1>
+				</div>
+
+				<p className="mt-12 mx-auto md:mx-0 flex center">
 					Copyright @ 2021 FESB. All rights reserved.
 				</p>
 			</main>
