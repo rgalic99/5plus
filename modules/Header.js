@@ -20,11 +20,11 @@ const Header = ({ color = "main" }) => {
 	const [isClicked, setIsClicked] = useState(false);
 
 	useEffect(() => {
-		const body = document.getElementsByTagName("body")[0];
+		const main = document.getElementsByTagName("main")[0];
 		if (isClicked) {
-			body.classList.add("overflow-hidden");
+			main.classList.add("overflow-hidden");
 		} else {
-			body.classList.remove("overflow-hidden");
+			main.classList.remove("overflow-hidden");
 		}
 	}, [isClicked]);
 
@@ -34,7 +34,6 @@ const Header = ({ color = "main" }) => {
 				<Link href="/" passHref>
 					<StyledNav color={secondary} rest={tw`rounded-2xl w-32`} />
 				</Link>
-
 				<section className="flex justify-end w-full">
 					{user && (
 						<Link href="/profile">
