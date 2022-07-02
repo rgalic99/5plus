@@ -13,7 +13,7 @@ const Subjects = () => {
 					<SubjectCard
 						key={el}
 						name={el}
-						link={namesList[i]}
+						link={"subjects/" + namesList[i]}
 						color={BorderColor[namesList[i]]}
 					/>
 				))}
