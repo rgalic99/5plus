@@ -10,11 +10,11 @@ const SubjectPage = ({ subject }) => {
 			<Header color={name} />
 			<h1>{namesToSubject[name]}</h1>
 			{categories.map((category) => (
-				<li key={category}>
+				<li key={category.name}>
 					<h2>{category.name}</h2>
 					<ul>
 						{category.questions.map((question, j) => (
-							<li key={question}>
+							<li key={question.question}>
 								<h3>{j + 1}</h3>
 							</li>
 						))}
