@@ -14,7 +14,7 @@ const SubjectPage = ({ subject }) => {
 					<h2>{category.name}</h2>
 					<ul>
 						{category.questions.map((question, j) => (
-							<li key={question.question}>
+							<li key={question.question + j}>
 								<h3>{j + 1}</h3>
 							</li>
 						))}
