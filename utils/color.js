@@ -8,6 +8,14 @@ export const BackgroundColor = {
 	croatian: tw`bg-croatian_main`,
 };
 
+export const TextColor = {
+	main: tw`text-main`,
+	math: tw`text-math_main`,
+	history: tw`text-history_main`,
+	science: tw`text-science_main`,
+	croatian: tw`text-croatian_main`,
+};
+
 export const HighlightColor = {
 	main: tw`bg-second`,
 	math: tw`bg-math_second`,
