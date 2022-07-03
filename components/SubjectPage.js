@@ -1,6 +1,7 @@
 import { namesToSubject } from "../constants/SubjectsList";
 import Footer from "../modules/Footer";
 import Header from "../modules/Header";
+import { BorderColor, TextColor } from "../utils/color";
 import Protected from "./Protected";
 
 const SubjectPage = ({ subject }) => {
@@ -8,19 +9,38 @@ const SubjectPage = ({ subject }) => {
 	return (
 		<Protected>
 			<Header color={name} />
-			<h1>{namesToSubject[name]}</h1>
-			{categories.map((category) => (
-				<li key={category.name}>
-					<h2>{category.name}</h2>
-					<ul>
-						{category.questions.map((question, j) => (
-							<li key={question.question + j}>
-								<h3>{j + 1}</h3>
-							</li>
-						))}
-					</ul>
-				</li>
-			))}
+			<section className="bg-doodle mx-4">
+				<h1
+					className="text-5xl my-3 underline uppercase p-2"
+					css={TextColor[name]}
+				>
+					{namesToSubject[name]}
+				</h1>
+				{categories.map((category) => (
+					<section
+						className="text-3xl ml-8 mb-2"
+						css={TextColor[name]}
+						key={category.name}
+					>
+						<h2 className="my-4 text-3xl sm:text-5xl">
+							{category.name}
+						</h2>
+						<section className="grid grid-flow-row grid-cols-3 grid-rows-2 gap-4">
+							{category.questions.map((question, j) => (
+								<div
+									className="flex p-auto m-auto w-20 h-20 sm:w-32 sm:h-32 rounded-2xl border-8 bg-white items-center justify-center"
+									key={question.question + j}
+									css={BorderColor[name]}
+								>
+									<p className="text-4xl sm:text-8xl font-roboto">
+										{j + 1}
+									</p>
+								</div>
+							))}
+						</section>
+					</section>
+				))}
+			</section>
 			<Footer />
 		</Protected>
 	);
