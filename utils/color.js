@@ -30,3 +30,11 @@ export const ProgressColor = {
 	science: "#61845C",
 	croatian: "#B85151",
 };
+
+export const ImageUrlConvert = {
+	main: ["/assets/close.svg", "/assets/navbar.svg"],
+	math: ["/assets/closeMath.svg", "/assets/navbarMath.svg"],
+	history: ["/assets/closeHistory.svg", "/assets/navbarHistory.svg"],
+	science: ["/assets/closeScience.svg", "/assets/navbarScience.svg"],
+	croatian: ["/assets/closeCroatian.svg", "/assets/navbarCroatian.svg"],
+};

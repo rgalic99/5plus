@@ -3,28 +3,36 @@ import Link from "next/link";
 import React, { useState, useEffect } from "react";
 import tw, { styled } from "twin.macro";
 import BurgerNavigation from "../components/Hamburger";
-import { BackgroundColor, HighlightColor } from "../utils/color";
+import {
+	BackgroundColor,
+	ImageUrlConvert,
+	HighlightColor,
+} from "../utils/color";
 import { useUserAuth } from "../utils/contextProvider";
 
 const Header = ({ color = "main" }) => {
 	const [primary, setPrimary] = useState();
 	const [secondary, setSecondary] = useState();
+	const [imagePath, setImagePath] = useState([
+		"/assets/close.svg",
+		"/assets/navbar.svg",
+	]);
+	const [isClicked, setIsClicked] = useState(false);
 
 	const { user } = useUserAuth();
 
 	useEffect(() => {
 		setPrimary(BackgroundColor[color]);
 		setSecondary(HighlightColor[color]);
+		setImagePath(ImageUrlConvert[color]);
 	}, [color]);
 
-	const [isClicked, setIsClicked] = useState(false);
-
 	useEffect(() => {
-		const main = document.getElementsByTagName("main")[0];
+		const body = document.getElementsByTagName("body")[0];
 		if (isClicked) {
-			main.classList.add("overflow-hidden");
+			body.classList.add("overflow-hidden");
 		} else {
-			main.classList.remove("overflow-hidden");
+			body.classList.remove("overflow-hidden");
 		}
 	}, [isClicked]);
 
@@ -52,11 +60,7 @@ const Header = ({ color = "main" }) => {
 							onClick={() => setIsClicked(!isClicked)}
 						>
 							<Image
-								src={
-									isClicked
-										? "/assets/close.svg"
-										: "/assets/navbar.svg"
-								}
+								src={isClicked ? imagePath[0] : imagePath[1]}
 								width="360px"
 								height="360px"
 								className="m-auto z-50"
