@@ -16,6 +16,14 @@ export const TextColor = {
 	croatian: tw`text-croatian_main`,
 };
 
+export const TextSecondColor = {
+	main: tw`text-second`,
+	math: tw`text-math_second`,
+	history: tw`text-history_second`,
+	science: tw`text-science_second`,
+	croatian: tw`text-croatian_second`,
+};
+
 export const HighlightColor = {
 	main: tw`bg-second`,
 	math: tw`bg-math_second`,

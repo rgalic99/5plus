@@ -1,20 +1,29 @@
 import { SecondButtonSubmitForm } from "../utils/button";
-import { BackgroundColor, HighlightColor } from "../utils/color";
+import {
+	BackgroundColor,
+	HighlightColor,
+	TextColor,
+	TextSecondColor,
+} from "../utils/color";
 import { useState, useEffect } from "react";
 
 const Footer = ({ color = "main" }) => {
 	const [primary, setPrimary] = useState();
 	const [secondary, setSecondary] = useState();
+	const [buttonText, setButtonText] = useState();
+	const [buttonColor, setButtonColor] = useState();
 
 	useEffect(() => {
 		setPrimary(BackgroundColor[color]);
-		setSecondary(HighlightColor[color]);
+		setSecondary(TextSecondColor[color]);
+		setButtonColor(HighlightColor[color]);
+		setButtonText(TextColor[color]);
 	}, [color]);
 
 	return (
-		<section className="py-12 text-second" css={primary}>
+		<section className="py-12" css={primary} style={secondary}>
 			<main className="flex flex-col ">
-				<div className="flex  justify-around mx-8 text-second items-stretch">
+				<div className="flex  justify-around mx-8 items-stretch">
 					<div className="hidden md:block">
 						<div>
 							<div className="text-3xl font-main font-bold text-white">
@@ -34,7 +43,7 @@ const Footer = ({ color = "main" }) => {
 							Pošaljite nam poruku!
 						</h3>
 
-						<div className="mt-2 flex flex-col text-main font-second">
+						<div className="mt-2 flex flex-col font-second">
 							<input
 								className="mt-4 p-2 w-4/5  rounded-md "
 								placeholder="Vaše ime"
@@ -51,7 +60,14 @@ const Footer = ({ color = "main" }) => {
 								cols="30"
 								rows="8"
 							></textarea>
-							<SecondButtonSubmitForm text="Pošalji" />
+							<button
+								type="submit"
+								className="p-2 col-span-10 col-start-2 mx-2 my-4 rounded-2xl text-2xl sm:col-start-4 sm:col-span-6"
+								css={buttonColor}
+								style={buttonText}
+							>
+								Pošalji
+							</button>
 						</div>
 					</div>
 
@@ -90,7 +106,7 @@ const Footer = ({ color = "main" }) => {
 				</div>
 
 				<div className="flex mx-auto mt-16 items-center md:hidden">
-					<h1 className="ml-6  text-3xl text-second font-main mb-2">
+					<h1 className="ml-6  text-3xl  font-main mb-2">
 						Hvala Vam na posjeti!
 					</h1>
 				</div>

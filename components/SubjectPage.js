@@ -37,7 +37,7 @@ const SubjectPage = ({ subject }) => {
 					</section>
 				))}
 			</section>
-			<Footer />
+			<Footer color={name} />
 		</Protected>
 	);
 };
