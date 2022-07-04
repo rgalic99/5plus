@@ -29,6 +29,7 @@ const Profile = () => {
 			displayName: newName,
 		})
 			.then(() => {
+				setNewName("");
 				setIsClicked(false);
 			})
 			.catch((error) => {
@@ -69,6 +70,7 @@ const Profile = () => {
 									onChange={(e) => {
 										setNewName(e.target.value);
 									}}
+									value={newName}
 									placeholder="Novo ime"
 									className="mt-8 w-4/5 h-14 rounded-2xl text-main placeholder:text-main bg-purple-200 text-overflow[elipsis] m-3 p-4 drop-shadow-2xl text-3xl text-left"
 								/>
@@ -101,9 +103,7 @@ const Profile = () => {
 								<Circle
 									percent={50}
 									strokeWidth={8}
-									strokeColor={`${
-										ProgressColor[namesList[i]]
-									}`}
+									strokeColor={`${ProgressColor[namesList[i]]}`}
 									className="sm:h-24 sm:w-24 sm:m-4 h-14 w-14"
 									trailColor="#eaeaea"
 									trailWidth={8}
