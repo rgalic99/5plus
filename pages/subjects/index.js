@@ -3,6 +3,7 @@ import { namesList, subjectList } from "../../constants/SubjectsList";
 import Header from "../../modules/Header";
 import { BorderColor } from "../../utils/color";
 import Protected from "../../components/Protected";
+import Footer from "../../modules/Footer";
 
 const Subjects = () => {
 	return (
@@ -18,6 +19,7 @@ const Subjects = () => {
 					/>
 				))}
 			</section>
+			<Footer />
 		</Protected>
 	);
 };
