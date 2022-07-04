@@ -8,9 +8,7 @@ const ForumPost = ({ post }) => {
 		<>
 			<Header />
 			<main className="w-2/3 mx-auto my-0 flex flex-col items-center">
-				<h1 className="text-center text-8xl text-gray-800">
-					{post.title}
-				</h1>
+				<h1 className="text-center text-8xl text-main">{post.title}</h1>
 				<h2 className="text-center text-5xl my-8 text-gray-600">
 					Some subtitle can go here
 				</h2>
