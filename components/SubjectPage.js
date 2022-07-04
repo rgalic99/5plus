@@ -21,7 +21,7 @@ const SubjectPage = ({ subject }) => {
 					</ul>
 				</li>
 			))}
-			<Footer />
+			<Footer color={name} />
 		</Protected>
 	);
 };

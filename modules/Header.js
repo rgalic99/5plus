@@ -38,10 +38,7 @@ const Header = ({ color = "main" }) => {
 					{user && (
 						<Link href="/profile">
 							<a>
-								<StyledNav
-									color={secondary}
-									rest={tw`rounded-full mr-4`}
-								/>
+								<StyledNav color={secondary} rest={tw`rounded-full mr-4`} />
 							</a>
 						</Link>
 					)}
@@ -52,11 +49,7 @@ const Header = ({ color = "main" }) => {
 							onClick={() => setIsClicked(!isClicked)}
 						>
 							<Image
-								src={
-									isClicked
-										? "/assets/close.svg"
-										: "/assets/navbar.svg"
-								}
+								src={isClicked ? "/assets/close.svg" : "/assets/navbar.svg"}
 								width="360px"
 								height="360px"
 								className="m-auto z-50"
@@ -65,10 +58,7 @@ const Header = ({ color = "main" }) => {
 						</StyledNav>
 					)}
 				</section>
-				<BurgerNavigation
-					isOpen={isClicked}
-					showNavbar={setIsClicked}
-				/>
+				<BurgerNavigation isOpen={isClicked} showNavbar={setIsClicked} />
 			</HeaderStyle>
 		</>
 	);

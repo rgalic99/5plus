@@ -1,10 +1,20 @@
-import Image from "next/image";
+import { SecondButtonSubmitForm } from "../utils/button";
+import { BackgroundColor, HighlightColor } from "../utils/color";
+import { useState, useEffect } from "react";
 
-const Footer = () => {
+const Footer = ({ color = "main" }) => {
+	const [primary, setPrimary] = useState();
+	const [secondary, setSecondary] = useState();
+
+	useEffect(() => {
+		setPrimary(BackgroundColor[color]);
+		setSecondary(HighlightColor[color]);
+	}, [color]);
+
 	return (
-		<section className="py-12 bg-main text-second">
+		<section className="py-12 text-second" css={primary}>
 			<main className="flex flex-col ">
-				<div className="flex  justify-between mx-8 text-second items-stretch">
+				<div className="flex  justify-around mx-8 text-second items-stretch">
 					<div className="hidden md:block">
 						<div>
 							<div className="text-3xl font-main font-bold text-white">
@@ -14,7 +24,7 @@ const Footer = () => {
 								<p className="ml-4">+385 123 0000</p>
 							</div>
 							<div className="flex items-end">
-								<p className="ml-4">design@fesb.hr</p>
+								<p className="ml-4">petplus@fesb.hr</p>
 							</div>
 						</div>
 					</div>
@@ -41,6 +51,7 @@ const Footer = () => {
 								cols="30"
 								rows="8"
 							></textarea>
+							<SecondButtonSubmitForm text="Pošalji" />
 						</div>
 					</div>
 
