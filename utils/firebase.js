@@ -38,7 +38,9 @@ export const getSubjectName = async (subjectName) => {
 
 export const getCategoriesNames = async (subjectName) => {
 	const categories = await getCategoriesFromSubject(subjectName);
-	return categories.map((category) => category.name);
+	return categories.map((category) => {
+		return { name: category.name, id: category.id };
+	});
 };
 
 const getCategoriesFromSubject = async (subjectName) => {

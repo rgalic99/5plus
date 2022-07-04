@@ -12,3 +12,10 @@ export const namesToSubject = {
 	science: "Znanost",
 	history: "Povijest",
 };
+
+export const subjectToName = {
+	Matematika: "math",
+	"Hrvatski jezik": "croatian",
+	Znanost: "science",
+	Povijest: "history",
+};
