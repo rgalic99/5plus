@@ -10,12 +10,13 @@ import {
 	getSubjectName,
 } from "../utils/firebase";
 import { useEffect, useState } from "react";
+import Link from "next/link";
 
 const SubjectPage = ({ subject }) => {
 	const [loading, setLoading] = useState(false);
 	const [name, setName] = useState("main");
 	const [categories, setCategories] = useState([]);
-	const [questions, setQuestions] = useState([]);
+
 	useEffect(() => {
 		setLoading(true);
 		getSubjectName(subject).then((subjectName) => {
@@ -23,7 +24,6 @@ const SubjectPage = ({ subject }) => {
 		});
 		getCategoriesNames(subject).then((categoriesName) => {
 			getQuestionsFromSubject(subject).then((questionsName) => {
-				setQuestions(questionsName);
 				setCategories(
 					categoriesName.map((category, i) => {
 						return {
@@ -64,7 +64,13 @@ const SubjectPage = ({ subject }) => {
 									key={question.id}
 									css={BorderColor[name]}
 								>
-									<p className="text-5xl sm:text-8xl font-roboto">{j + 1}</p>
+									<Link href={`/subjects/${name}/${question.id}`}>
+										<a>
+											<p className="text-5xl sm:text-8xl font-roboto">
+												{j + 1}
+											</p>
+										</a>
+									</Link>
 								</div>
 							))}
 						</section>
