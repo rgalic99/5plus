@@ -8,7 +8,7 @@ const {
 } = require("../constants/NavbarItems");
 
 const NavBar = ({ classes, showNavbar }) => {
-	const { logOut } = useUserAuth();
+	const { logOut, user } = useUserAuth();
 	const router = useRouter();
 	const handleSignOut = () => {
 		try {
@@ -36,7 +36,9 @@ const NavBar = ({ classes, showNavbar }) => {
 
 			<li
 				onClick={handleSignOut}
-				className="px-5 py-8 whitespace-nowrap text-center first:mt-8 hover:bg-opacity-50 hover:text-amber-700 cursor-pointer border-b-4 border-b-main w-9/12 h-24 "
+				className={`${
+					user ? "" : "hidden"
+				} px-5 py-8 whitespace-nowrap text-center first:mt-8 hover:bg-opacity-50 hover:text-amber-700 cursor-pointer border-b-4 border-b-main w-9/12 h-24 `}
 			>
 				Odjava
 			</li>

@@ -51,20 +51,18 @@ const Header = ({ color = "main" }) => {
 						</Link>
 					)}
 
-					{user && (
-						<StyledNav
-							rest={tw`ml-5 justify-center cursor-pointer sm:hidden`}
-							onClick={() => setIsClicked(!isClicked)}
-						>
-							<Image
-								src={isClicked ? imagePath[0] : imagePath[1]}
-								width="360px"
-								height="360px"
-								className="m-auto z-50"
-								alt="="
-							></Image>
-						</StyledNav>
-					)}
+					<StyledNav
+						rest={tw`ml-5 justify-center cursor-pointer sm:hidden`}
+						onClick={() => setIsClicked(!isClicked)}
+					>
+						<Image
+							src={isClicked ? imagePath[0] : imagePath[1]}
+							width="360px"
+							height="360px"
+							className="m-auto z-50"
+							alt="="
+						></Image>
+					</StyledNav>
 				</section>
 				<BurgerNavigation isOpen={isClicked} showNavbar={setIsClicked} />
 			</HeaderStyle>
