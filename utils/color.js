@@ -8,6 +8,14 @@ export const BackgroundColor = {
 	croatian: tw`bg-croatian_main`,
 };
 
+export const TextColor = {
+	main: tw`text-main`,
+	math: tw`text-math_main`,
+	history: tw`text-history_main`,
+	science: tw`text-science_main`,
+	croatian: tw`text-croatian_main`,
+};
+
 export const HighlightColor = {
 	main: tw`bg-second`,
 	math: tw`bg-math_second`,
@@ -29,4 +37,12 @@ export const ProgressColor = {
 	history: "#B18E48",
 	science: "#61845C",
 	croatian: "#B85151",
+};
+
+export const ImageUrlConvert = {
+	main: ["/assets/close.svg", "/assets/navbar.svg"],
+	math: ["/assets/closeMath.svg", "/assets/navbarMath.svg"],
+	history: ["/assets/closeHistory.svg", "/assets/navbarHistory.svg"],
+	science: ["/assets/closeScience.svg", "/assets/navbarScience.svg"],
+	croatian: ["/assets/closeCroatian.svg", "/assets/navbarCroatian.svg"],
 };

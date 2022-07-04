@@ -37,10 +37,10 @@ export const RegisterForm = () => {
 	const router = useRouter();
 
 	const onSubmit = async (data) => {
-		const { email, password } = data;
+		const { email, password, name, lName } = data;
 
 		try {
-			await signUp(email, password);
+			signUp(email, password, `${name} ${lName}`);
 			await router.push("/success");
 		} catch (e) {
 			setError("Korisnik sa ovom email adresom vec postoji!");

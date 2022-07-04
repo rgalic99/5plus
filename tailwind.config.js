@@ -11,6 +11,7 @@ module.exports = {
 			fontFamily: {
 				main: ['"main"', "sans-serif"],
 				second: ['"second"', "sans-serif"],
+				roboto: ["Roboto", "sans-serif"],
 			},
 			colors: {
 				main: "#4b3566",
