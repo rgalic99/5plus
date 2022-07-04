@@ -1,15 +1,14 @@
 import { useRouter } from "next/router";
 import { useEffect } from "react";
-import { useUserAuth } from "../utils/contextProvider";
+import { auth } from "../utils/firebase";
 
 const Protected = ({ children }) => {
-	const { user } = useUserAuth();
 	const router = useRouter();
 	useEffect(() => {
-		if (!user) {
+		if (!auth.currentUser) {
 			router.push("/login");
 		}
-	}, [user, router]);
+	}, [router]);
 
 	return children;
 };
