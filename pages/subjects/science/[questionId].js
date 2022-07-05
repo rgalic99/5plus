@@ -1,31 +1,15 @@
-import Footer from "../../../modules/Footer";
-import Header from "../../../modules/Header";
+import QuestionPage from "../../../components/QuestionPage";
 import { getQuestionsFromSubject } from "../../../utils/firebase";
 
-const QuestionPage = () => {
-	const pageColor = "science";
-	return (
-		<>
-			<Header color={pageColor} />
-			<main className="w-2/3 mx-auto my-0 flex flex-col items-center">
-				<h1 className="text-center text-8xl text-main"></h1>
-				<h2 className="text-center text-5xl my-8 text-gray-600">
-					Some subtitle can go here
-				</h2>
-
-				<p className="text-gray-800 text-xl mt-16">...</p>
-				<p>Read more bellow</p>
-			</main>
-			<Footer color={pageColor} />
-		</>
-	);
+const Question = ({ question }) => {
+	return <QuestionPage question={question} pageColor="science" />;
 };
 
-export default QuestionPage;
+export default Question;
 
 const getPostBySlug = async (questionId) => {
 	return await getQuestionsFromSubject("science").then((questions) =>
-		questions.find((question) => question.id === questionId)
+		questions.flat().find((question) => question.id === questionId)
 	);
 };
 
@@ -34,7 +18,7 @@ export async function getStaticProps({ params: { questionId } }) {
 
 	return {
 		props: {
-			post: null,
+			question: question,
 		},
 	};
 }

@@ -55,6 +55,13 @@ export const ImageUrlConvert = {
 	croatian: ["/assets/closeCroatian.svg", "/assets/navbarCroatian.svg"],
 };
 
+export const BorderTopColor = {
+	main: tw`border-t-main`,
+	math: tw`border-t-math_main`,
+	history: tw`border-t-history_main`,
+	science: tw`border-t-science_main`,
+	croatian: tw`border-t-croatian_main`,
+};
 export const ProfileUrlConvert = {
 	main: "/assets/user-main.svg",
 	math: "/assets/user-math.svg",

@@ -15,9 +15,6 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app);
-// onAuthStateChanged(auth, (user) => {
-// 	// Check for user status
-// });
 
 export const db = getFirestore(app);
 //TODO add Facebook login
