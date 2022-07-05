@@ -53,7 +53,7 @@ const Header = ({ color = "main" }) => {
 						alt="+"
 					></Image>
 				</Link>
-				<section className="flex justify-end items-center w-full">
+				<section className="flex justify-end items-center w-full sm:mr-8">
 					{user && (
 						<Link href="/profile">
 							<a>
@@ -81,7 +81,10 @@ const Header = ({ color = "main" }) => {
 						></Image>
 					</StyledNav>
 				</section>
-				<BurgerNavigation isOpen={isClicked} showNavbar={setIsClicked} />
+				<BurgerNavigation
+					isOpen={isClicked}
+					showNavbar={setIsClicked}
+				/>
 			</HeaderStyle>
 		</>
 	);
@@ -90,7 +93,7 @@ const Header = ({ color = "main" }) => {
 const HeaderStyle = styled.header(({ color }) => [
 	color,
 	tw`
-		h-32 inline-flex w-full text-6xl mx-auto
+	inline-flex w-full text-6xl mx-auto pb-2
 		`,
 ]);
 
