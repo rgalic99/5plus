@@ -7,6 +7,7 @@ import {
 	BackgroundColor,
 	ImageUrlConvert,
 	HighlightColor,
+	ProfileUrlConvert,
 } from "../utils/color";
 import { useUserAuth } from "../utils/contextProvider";
 
@@ -17,6 +18,8 @@ const Header = ({ color = "main" }) => {
 		"/assets/close.svg",
 		"/assets/navbar.svg",
 	]);
+	const [profilePath, setProfilePath] = useState("/assets/user-main.svg");
+
 	const [isClicked, setIsClicked] = useState(false);
 
 	const { user } = useUserAuth();
@@ -25,6 +28,7 @@ const Header = ({ color = "main" }) => {
 		setPrimary(BackgroundColor[color]);
 		setSecondary(HighlightColor[color]);
 		setImagePath(ImageUrlConvert[color]);
+		setProfilePath(ProfileUrlConvert[color]);
 	}, [color]);
 
 	useEffect(() => {
@@ -40,13 +44,26 @@ const Header = ({ color = "main" }) => {
 		<>
 			<HeaderStyle color={primary}>
 				<Link href="/" passHref>
-					<StyledNav color={secondary} rest={tw`rounded-2xl w-32`} />
+					<Image
+						src={"/assets/logo.svg"}
+						width="128px"
+						height="128px"
+						className="m-auto w-32 "
+						fill={secondary}
+						alt="+"
+					></Image>
 				</Link>
-				<section className="flex justify-end w-full">
+				<section className="flex justify-end items-center w-full">
 					{user && (
 						<Link href="/profile">
 							<a>
-								<StyledNav color={secondary} rest={tw`rounded-full mr-4`} />
+								<Image
+									src={profilePath}
+									width="64px"
+									height="64px"
+									className="mr-4 mt-8"
+									alt="O"
+								></Image>
 							</a>
 						</Link>
 					)}

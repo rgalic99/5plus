@@ -54,3 +54,11 @@ export const ImageUrlConvert = {
 	science: ["/assets/closeScience.svg", "/assets/navbarScience.svg"],
 	croatian: ["/assets/closeCroatian.svg", "/assets/navbarCroatian.svg"],
 };
+
+export const ProfileUrlConvert = {
+	main: "/assets/user-main.svg",
+	math: "/assets/user-math.svg",
+	history: "/assets/user-history.svg",
+	science: "/assets/user-science.svg",
+	croatian: "/assets/user-croatian.svg",
+};
