@@ -154,14 +154,12 @@ const Profile = () => {
 export default Profile;
 
 async function getUserAnswers(user) {
-	const userRef = doc(db, "users", user.uid);
+	if (db) {
+		const userRef = doc(db, "users", user.uid);
 
-	const userSnap = await getDoc(userRef);
-	const userData = userSnap.data();
+		const userSnap = await getDoc(userRef);
+		const userData = userSnap.data();
 
-	return userData;
+		return userData;
+	}
 }
-
-const check = (array, id) => {
-	return array?.find((item) => item === id);
-};

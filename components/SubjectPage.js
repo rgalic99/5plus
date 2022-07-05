@@ -30,9 +30,11 @@ const SubjectPage = ({ subject }) => {
 	const { user } = useUserAuth();
 
 	useEffect(() => {
-		getUserAnswers(user, subject).then((questions) => {
-			setAnswered(questions);
-		});
+		if (user) {
+			getUserAnswers(user, subject).then((questions) => {
+				setAnswered(questions);
+			});
+		}
 	}, [subject, user]);
 
 	useEffect(() => {
@@ -128,12 +130,14 @@ const SubjectPage = ({ subject }) => {
 export default SubjectPage;
 
 async function getUserAnswers(user, pageColor) {
-	const userRef = doc(db, "users", user.uid);
+	if (db) {
+		const userRef = doc(db, "users", user.uid);
 
-	const userSnap = await getDoc(userRef);
-	const userData = userSnap.data();
+		const userSnap = await getDoc(userRef);
+		const userData = userSnap.data();
 
-	return userData[pageColor];
+		return userData[pageColor];
+	}
 }
 
 const check = (array, id) => {
