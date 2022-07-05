@@ -7,14 +7,25 @@ import { Circle } from "rc-progress";
 import { ProgressColor } from "../utils/color";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
-import { auth } from "../utils/firebase";
+import { auth, db } from "../utils/firebase";
 import { updateProfile } from "firebase/auth";
+import { doc, getDoc } from "firebase/firestore";
 
 const Profile = () => {
 	const { user, logOut } = useUserAuth();
 	const router = useRouter();
 	const [isClicked, setIsClicked] = useState(false);
 	const [newName, setNewName] = useState("");
+	const [questions, setQuestions] = useState({});
+
+	useEffect(() => {
+		if (user) {
+			getUserAnswers(user).then((questions) => {
+				setQuestions(questions);
+			});
+		}
+	}, [user]);
+
 	useEffect(() => {
 		const section = document.getElementById("nameChange");
 		if (isClicked) {
@@ -101,14 +112,19 @@ const Profile = () => {
 								className="flex flex-col sm:m-4 text-3xl text-main items-center content-center justify-center align-middle"
 							>
 								<Circle
-									percent={50}
+									percent={
+										questions[namesList[i]]?.length ||
+										0 / 30
+									}
 									strokeWidth={8}
-									strokeColor={`${ProgressColor[namesList[i]]}`}
+									strokeColor={`${
+										ProgressColor[namesList[i]]
+									}`}
 									className="sm:h-24 sm:w-24 sm:m-4 h-14 w-14"
 									trailColor="#eaeaea"
 									trailWidth={8}
 								/>
-								<p>13/26</p>
+								<p>{questions[namesList[i]]?.length || 0}/30</p>
 
 								{el}
 							</section>
@@ -136,3 +152,16 @@ const Profile = () => {
 };
 
 export default Profile;
+
+async function getUserAnswers(user) {
+	const userRef = doc(db, "users", user.uid);
+
+	const userSnap = await getDoc(userRef);
+	const userData = userSnap.data();
+
+	return userData;
+}
+
+const check = (array, id) => {
+	return array?.find((item) => item === id);
+};
