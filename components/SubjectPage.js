@@ -130,14 +130,13 @@ const SubjectPage = ({ subject }) => {
 export default SubjectPage;
 
 async function getUserAnswers(user, pageColor) {
-	if (db) {
-		const userRef = doc(db, "users", user.uid);
+	if (!db) return [];
+	const userRef = doc(db, "users", user.uid);
 
-		const userSnap = await getDoc(userRef);
-		const userData = userSnap.data();
+	const userSnap = await getDoc(userRef);
+	const userData = userSnap.data();
 
-		return userData[pageColor];
-	}
+	return userData[pageColor] ? userData[pageColor] : [];
 }
 
 const check = (array, id) => {

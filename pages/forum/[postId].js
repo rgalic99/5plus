@@ -14,7 +14,6 @@ const ForumPost = ({ post }) => {
 				</h2>
 
 				<p className="text-gray-800 text-xl mt-16">{post.body}...</p>
-				<p>Read more bellow</p>
 			</main>
 			<Footer />
 		</>

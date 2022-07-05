@@ -13,19 +13,17 @@ const Forum = () => {
 			<section className="mx-auto text-main px-8">
 				<section className="pb-4">
 					{ForumPosts.map((post) => (
-						<section className="h-40" key={post.id}>
+						<section className="h-fit mb-4" key={post.id}>
 							<Link
-								href={`/forum/${post.title
-									.toLowerCase()
-									.replace(/ /g, "-")}`}
+								href={`/forum/${post.title.toLowerCase().replace(/ /g, "-")}`}
 							>
 								<a>
-									<h1 className="text-5xl hover:text-orange-300">
+									<h1 className="text-5xl hover:text-orange-300 underline">
 										{post.title}
 									</h1>
 								</a>
 							</Link>
-							<p className="text-2xl">{post.body}</p>
+							<p className="text-2xl max-w-prose truncate">{post.body}</p>
 						</section>
 					))}
 				</section>

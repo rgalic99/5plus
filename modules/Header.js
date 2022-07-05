@@ -44,14 +44,16 @@ const Header = ({ color = "main" }) => {
 		<>
 			<HeaderStyle color={primary}>
 				<Link href="/" passHref>
-					<Image
-						src={"/assets/logo.svg"}
-						width="128px"
-						height="128px"
-						className="m-auto w-32 "
-						fill={secondary}
-						alt="+"
-					></Image>
+					<a>
+						<Image
+							src={"/assets/logo.svg"}
+							width="128px"
+							height="128px"
+							className="m-auto w-32 "
+							fill={secondary}
+							alt="+"
+						/>
+					</a>
 				</Link>
 				<section className="flex justify-end items-center w-full sm:mr-8">
 					{user && (
@@ -81,10 +83,7 @@ const Header = ({ color = "main" }) => {
 						></Image>
 					</StyledNav>
 				</section>
-				<BurgerNavigation
-					isOpen={isClicked}
-					showNavbar={setIsClicked}
-				/>
+				<BurgerNavigation isOpen={isClicked} showNavbar={setIsClicked} />
 			</HeaderStyle>
 		</>
 	);
