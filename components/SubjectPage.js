@@ -1,9 +1,13 @@
 import { namesToSubject, subjectToName } from "../constants/SubjectsList";
 import Footer from "../modules/Footer";
 import Header from "../modules/Header";
-import { BorderColor, TextColor } from "../utils/color";
+import {
+	BackgroundColor,
+	BorderColor,
+	BorderTopColor,
+	TextColor,
+} from "../utils/color";
 import Protected from "./Protected";
-import Loader from "./Loader";
 import {
 	getCategoriesNames,
 	getQuestionsFromSubject,
@@ -11,8 +15,11 @@ import {
 } from "../utils/firebase";
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import { useRouter } from "next/router";
+import Image from "next/image";
 
 const SubjectPage = ({ subject }) => {
+	const router = useRouter();
 	const [loading, setLoading] = useState(false);
 	const [name, setName] = useState("main");
 	const [categories, setCategories] = useState([]);
@@ -38,17 +45,29 @@ const SubjectPage = ({ subject }) => {
 		});
 	}, [subject]);
 	if (loading) {
-		return <Loader show={loading} />;
+		return (
+			<p
+				className="border-8 rounded-full border-gray-400s mt-8 border-t-8 w-64 h-64 mx-auto animate-spin"
+				css={BorderTopColor[subject]}
+			/>
+		);
 	}
 	return (
 		<Protected>
 			<Header color={name} />
 			<section className="bg-doodle px-4 py-8">
 				<h1
-					className="text-5xl my-3 underline uppercase p-2"
-					css={TextColor[name]}
+					className="text-5xl text-white w-fit px-3 rounded-2xl my-3 uppercase p-2"
+					css={BackgroundColor[name]}
+					onClick={() => router.push("/subjects/")}
 				>
-					{namesToSubject[name]}
+					<Image
+						src="/assets/arrow.svg"
+						alt="<-"
+						width={32}
+						height={32}
+					/>{" "}
+					<span>{namesToSubject[name]}</span>
 				</h1>
 				{categories.map((category) => (
 					<section
@@ -56,7 +75,9 @@ const SubjectPage = ({ subject }) => {
 						css={TextColor[name]}
 						key={category.id}
 					>
-						<h2 className="my-4 text-3xl sm:text-5xl">{category.name}</h2>
+						<h2 className="my-4 text-3xl sm:text-5xl">
+							{category.name}
+						</h2>
 						<section className="grid grid-flow-row grid-cols-3 grid-rows-2 gap-4">
 							{category.questions.map((question, j) => (
 								<div
@@ -64,7 +85,9 @@ const SubjectPage = ({ subject }) => {
 									key={question.id}
 									css={BorderColor[name]}
 								>
-									<Link href={`/subjects/${name}/${question.id}`}>
+									<Link
+										href={`/subjects/${name}/${question.id}`}
+									>
 										<a>
 											<p className="text-5xl sm:text-8xl font-roboto">
 												{j + 1}
