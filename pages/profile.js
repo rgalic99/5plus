@@ -113,13 +113,10 @@ const Profile = () => {
 							>
 								<Circle
 									percent={
-										questions[namesList[i]]?.length ||
-										0 / 30
+										(questions && questions[namesList[i]]?.length) || 0 / 30
 									}
 									strokeWidth={8}
-									strokeColor={`${
-										ProgressColor[namesList[i]]
-									}`}
+									strokeColor={`${ProgressColor[namesList[i]]}`}
 									className="sm:h-24 sm:w-24 sm:m-4 h-14 w-14"
 									trailColor="#eaeaea"
 									trailWidth={8}
