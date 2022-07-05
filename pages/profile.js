@@ -121,7 +121,7 @@ const Profile = () => {
 									trailColor="#eaeaea"
 									trailWidth={8}
 								/>
-								<p>{questions[namesList[i]]?.length || 0}/30</p>
+								<p>{(questions && questions[namesList[i]]?.length) || 0}/30</p>
 
 								{el}
 							</section>

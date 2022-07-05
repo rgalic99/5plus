@@ -74,12 +74,7 @@ const SubjectPage = ({ subject }) => {
 					css={BackgroundColor[name]}
 					onClick={() => router.push("/subjects/")}
 				>
-					<Image
-						src="/assets/arrow.svg"
-						alt="<-"
-						width={32}
-						height={32}
-					/>{" "}
+					<Image src="/assets/arrow.svg" alt="<-" width={32} height={32} />{" "}
 					<span>{namesToSubject[name]}</span>
 				</h1>
 				{categories.map((category) => (
@@ -88,9 +83,7 @@ const SubjectPage = ({ subject }) => {
 						css={TextColor[name]}
 						key={category.id}
 					>
-						<h2 className="my-4 text-3xl sm:text-5xl">
-							{category.name}
-						</h2>
+						<h2 className="my-4 text-3xl sm:text-5xl">{category.name}</h2>
 						<section className="grid grid-flow-row grid-cols-3 grid-rows-2 gap-4">
 							{category.questions.map((question, j) => (
 								<div
@@ -107,9 +100,7 @@ const SubjectPage = ({ subject }) => {
 											{j + 1}
 										</p>
 									) : (
-										<Link
-											href={`/subjects/${name}/${question.id}`}
-										>
+										<Link href={`/subjects/${name}/${question.id}`}>
 											<a>
 												<p className="text-5xl sm:text-8xl font-roboto">
 													{j + 1}
@@ -136,7 +127,7 @@ async function getUserAnswers(user, pageColor) {
 	const userSnap = await getDoc(userRef);
 	const userData = userSnap.data();
 
-	return userData[pageColor] ? userData[pageColor] : [];
+	return userData && userData[pageColor] ? userData[pageColor] : [];
 }
 
 const check = (array, id) => {
