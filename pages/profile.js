@@ -113,15 +113,24 @@ const Profile = () => {
 							>
 								<Circle
 									percent={
-										(questions && questions[namesList[i]]?.length) || 0 / 30
+										(questions &&
+											questions[namesList[i]]?.length) ||
+										(0 / 30) * 100
 									}
 									strokeWidth={8}
-									strokeColor={`${ProgressColor[namesList[i]]}`}
+									strokeColor={`${
+										ProgressColor[namesList[i]]
+									}`}
 									className="sm:h-24 sm:w-24 sm:m-4 h-14 w-14"
 									trailColor="#eaeaea"
 									trailWidth={8}
 								/>
-								<p>{(questions && questions[namesList[i]]?.length) || 0}/30</p>
+								<p>
+									{(questions &&
+										questions[namesList[i]]?.length) ||
+										0}
+									/30
+								</p>
 
 								{el}
 							</section>
@@ -160,3 +169,4 @@ async function getUserAnswers(user) {
 		return userData;
 	}
 }
+
