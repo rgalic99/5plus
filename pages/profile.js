@@ -113,9 +113,11 @@ const Profile = () => {
 							>
 								<Circle
 									percent={
-										((questions &&
+										(((questions &&
 											questions[namesList[i]]?.length) ||
-											0 / 30) * 100
+											0) /
+											30) *
+										100
 									}
 									strokeWidth={8}
 									strokeColor={`${
